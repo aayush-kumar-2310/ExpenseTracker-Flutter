@@ -1,0 +1,4 @@
+#Tue Jun 27 20:42:16 IST 2023
+base.0=/home/ghost/Code/Flutter/expense_tracker/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
