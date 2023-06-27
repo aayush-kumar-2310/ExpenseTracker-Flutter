@@ -1,5 +1,7 @@
 // import 'package:expense_tracker/models/expense_info.dart';
+import 'package:pie_chart/pie_chart.dart';
 
+import 'models/pie_data.dart';
 import 'package:flutter/material.dart';
 import 'add_expense.dart';
 import 'models/expense_info.dart';
@@ -12,6 +14,14 @@ class LandingScreen extends StatefulWidget {
 }
 
 class _LandingScreenState extends State<LandingScreen> {
+  final arrayImage = [
+    const AssetImage('assets/images/bill.png'),
+    const AssetImage('assets/images/burger.png'),
+    const AssetImage('assets/images/content.png'),
+    const AssetImage('assets/images/more.png'),
+    const AssetImage('assets/images/online-shopping.png'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +49,18 @@ class _LandingScreenState extends State<LandingScreen> {
           Expanded(
             flex: 1,
             child: Container(
+              padding: EdgeInsets.all(30),
               color: Colors.teal,
+              child: PieChart(
+                chartRadius: MediaQuery.of(context).size.width / 2,
+                chartValuesOptions: ChartValuesOptions(
+                  showChartValuesOutside: true,
+                ),
+                initialAngleInDegree: 0,
+                dataMap: amount,
+                animationDuration: const Duration(milliseconds: 1000),
+                baseChartColor: Colors.green,
+              ),
             ),
           ),
           Expanded(
@@ -50,7 +71,9 @@ class _LandingScreenState extends State<LandingScreen> {
                   // final expense = listOfExpense[index];
                   return Dismissible(
                       background: Container(
-                        color: Colors.red,
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(20)),
                       ),
                       secondaryBackground: Container(color: Colors.red),
                       onDismissed: (direction) {
@@ -61,12 +84,21 @@ class _LandingScreenState extends State<LandingScreen> {
                         ));
                       },
                       key: UniqueKey(),
-                      child: ListTile(
-                        tileColor: Colors.green,
-                        leading: const Icon(Icons.restaurant),
-                        trailing: Text(listOfExpense[index].amount),
-                        subtitle: Text(listOfExpense[index].category),
-                        title: Text(listOfExpense[index].title),
+                      child: Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        child: ListTile(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          tileColor: Colors.lightBlue.shade200,
+                          leading:
+                              Image(image: arrayImage[listOfExpense[index].id]),
+                          trailing: Text(listOfExpense[index].amount),
+                          subtitle: Text(listOfExpense[index].category),
+                          title: Text(listOfExpense[index].title),
+                        ),
                       ));
                 }),
           )

@@ -1,5 +1,8 @@
+// ignore_for_file: curly_braces_in_flow_control_structures, prefer_final_fields
+
 import 'package:flutter/material.dart';
 import 'models/expense_info.dart';
+import 'models/pie_data.dart';
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key});
@@ -12,6 +15,7 @@ class _NewExpenseState extends State<NewExpense> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
 
+  int id = 3;
   String a = "", b = "";
   String _date = "Select date";
   String? _selectedVal = "Shopping";
@@ -20,9 +24,27 @@ class _NewExpenseState extends State<NewExpense> {
     "Food",
     "Bill",
     "Entertainment",
+    "Others",
   ];
 
-  submitDetails() {}
+  setImageId() {
+    if (_selectedVal == "Shopping") {
+      id = 4;
+      amount['Shopping'] = int.parse(b) + amount['Shopping']!;
+    } else if (_selectedVal == "Others") {
+      id = 3;
+      amount['Others'] = int.parse(b) + amount['Others']!;
+    } else if (_selectedVal == "Bill") {
+      id = 0;
+      amount['Bill'] = int.parse(b) + amount['Bill']!;
+    } else if (_selectedVal == "Food") {
+      amount['Food'] = int.parse(b) + amount['Food']!;
+      id = 1;
+    } else if (_selectedVal == "Entertainment") {
+      id = 2;
+      amount['Entertainment'] = int.parse(b) + amount['Entertainment']!;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +113,10 @@ class _NewExpenseState extends State<NewExpense> {
           ),
           ElevatedButton(
             onPressed: () {
+              setImageId();
+
               final generatedExpense = Expense(
+                  id: id,
                   title: a,
                   amount: b,
                   dateTime: _date,
