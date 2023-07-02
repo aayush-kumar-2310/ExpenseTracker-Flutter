@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">767906282050-86fpv75ktf33nak5mgtn5up73hh00631.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">767906282050</string>
+    <string name="google_api_key" translatable="false">AIzaSyBXlk9OwKW9dZBngiumbbVKwiYXfCfrGXA</string>
+    <string name="google_app_id" translatable="false">1:767906282050:android:b32d7afc867c44a633cbdb</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBXlk9OwKW9dZBngiumbbVKwiYXfCfrGXA</string>
+    <string name="google_storage_bucket" translatable="false">aayush-expense-tracker-flutter.appspot.com</string>
+    <string name="project_id" translatable="false">aayush-expense-tracker-flutter</string>
+</resources>
