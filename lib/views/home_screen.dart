@@ -49,11 +49,11 @@ class _LandingScreenState extends State<LandingScreen> {
           Expanded(
             flex: 1,
             child: Container(
-              padding: EdgeInsets.all(30),
+              padding: const EdgeInsets.all(30),
               color: Colors.teal,
               child: PieChart(
                 chartRadius: MediaQuery.of(context).size.width / 2,
-                chartValuesOptions: ChartValuesOptions(
+                chartValuesOptions: const ChartValuesOptions(
                   showChartValuesOutside: true,
                 ),
                 initialAngleInDegree: 0,
@@ -85,11 +85,11 @@ class _LandingScreenState extends State<LandingScreen> {
                       },
                       key: UniqueKey(),
                       child: Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 5),
                         child: ListTile(
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white),
+                            side: const BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           tileColor: Colors.lightBlue.shade200,

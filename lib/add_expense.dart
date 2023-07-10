@@ -15,7 +15,7 @@ class _NewExpenseState extends State<NewExpense> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
 
-  int id = 3;
+  int id = 3, expNo = 0;
   String a = "", b = "";
   String _date = "Select date";
   String? _selectedVal = "Shopping";
@@ -105,9 +105,6 @@ class _NewExpenseState extends State<NewExpense> {
                     ),
                   ],
                 ),
-                Text(a),
-                Text(b),
-                Text(_date),
               ],
             ),
           ),
@@ -117,6 +114,7 @@ class _NewExpenseState extends State<NewExpense> {
 
               final generatedExpense = Expense(
                   id: id,
+                  expNo: expNo++,
                   title: a,
                   amount: b,
                   dateTime: _date,
