@@ -93,7 +93,6 @@ class _NewExpenseState extends State<NewExpense> {
                             initialDate: DateTime.now(),
                             firstDate: DateTime(2022),
                             lastDate: DateTime(2024));
-
                         if (datePicked != null) {
                           setState(() {
                             _date =
